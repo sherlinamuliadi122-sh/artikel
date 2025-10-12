@@ -3,29 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jadwal Kuliah</title>
+  <title>Jadwal Kuliah - Sherlina Muliadi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    .navbar, footer {
-      background-color: #f48fb1 !important;
+    :root {
+      --pink-primary: #ff6b9d;
+      --pink-secondary: #ffc3d6;
+      --pink-light: #fff0f5;
+      --pink-dark: #c75b7a;
+      --gradient: linear-gradient(135deg, #ff6b9d 0%, #ffc3d6 100%);
     }
-    .nav-link, .navbar-brand, footer {
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #ffffff);
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(255, 107, 157, 0.1);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link {
+      color: #333 !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem !important;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--gradient);
       color: white !important;
+      transform: translateY(-2px);
     }
-    .nav-link:hover {
-      color: #ffe4ec !important;
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      animation: fadeIn 1s ease;
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-header h2 {
+      color: var(--pink-dark);
+      font-weight: 800;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    /* Table Container */
+    .table-container {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(255, 107, 157, 0.1);
+      animation: slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Table Styles */
+    .table {
+      margin: 0;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
     thead {
-      background-color: #f48fb1 !important;
+      background: var(--gradient);
       color: white;
+    }
+
+    thead th {
+      border: none;
+      padding: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    tbody td {
+      padding: 1rem;
+      vertical-align: middle;
+      text-align: center;
+      color: #555;
+      border-color: #f0f0f0;
+    }
+
+    tbody tr {
+      transition: all 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background: var(--pink-light);
+      transform: scale(1.01);
+      box-shadow: 0 5px 15px rgba(255, 107, 157, 0.1);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: #fafafa;
+    }
+
+    /* Day Badge */
+    tbody td:first-child {
+      font-weight: 700;
+      color: var(--pink-dark);
+      background: var(--pink-light);
+    }
+
+    /* Responsive */
+    .table-responsive {
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gradient);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 5rem;
+      box-shadow: 0 -5px 30px rgba(255, 107, 157, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .page-header h2 {
+        font-size: 2rem;
+      }
+
+      .table-container {
+        padding: 1rem;
+      }
+
+      thead th, tbody td {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Jadwal Kuliah</a>
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-calendar-alt"></i> Jadwal Kuliah
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -41,98 +204,104 @@
     </div>
   </nav>
 
-  <!-- Konten -->
+  <!-- Content -->
   <div class="container my-5">
+    <div class="page-header">
+      <h2><i class="fas fa-clock"></i> Jadwal Kuliah Semester 3</h2>
+      <p>Berikut adalah jadwal perkuliahan Sherlina Muliadi, mahasiswa PTIK F Universitas Negeri Makassar</p>
+    </div>
+
     <div class="row justify-content-center">
-      <div class="col-md-10">
-        <h2 class="text-center fw-bold mb-4">Jadwal Kuliah Semester 3</h2>
-        <p class="text-center text-muted mb-4">Berikut adalah jadwal perkuliahan Sherlina Muliadi, mahasiswa PTIK F Universitas Negeri Makassar.</p>
+      <div class="col-12">
+        <div class="table-container">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>Hari</th>
+                  <th>Waktu</th>
+                  <th>Mata Kuliah</th>
+                  <th>Dosen Pengampu</th>
+                  <th>Dosen Mitra</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">Senin</td>
+                  <td>07:30 - 10:05</td>
+                  <td>Jaringan Komputer</td>
+                  <td>Abd. Rahman Patta, S.Kom., M.T., Ph.D.</td>
+                  <td>Haekal Febriansyah Ramadhan, S.T., M.T., M.Pd.</td>
+                </tr>
+                <tr>
+                  <td>14:50 - 17:30</td>
+                  <td>Pemrograman Web</td>
+                  <td>Dr. Ir. Mustari S. Lamada, S.Pd., M.T.</td>
+                  <td>Alifyah NFH, S.Pd., M.Pd.</td>
+                </tr>
 
-        <div class="table-responsive shadow-sm">
-          <table class="table table-bordered table-hover align-middle text-center">
-            <thead>
-              <tr>
-                <th>Hari</th>
-                <th>Waktu</th>
-                <th>Mata Kuliah</th>
-                <th>Dosen Pengampu</th>
-                <th>Dosen Mitra</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td rowspan="2">Senin</td>
-                <td>07:30 - 10:05</td>
-                <td>Jaringan Komputer</td>
-                <td>Abd. Rahman Patta, S.Kom., M.T., Ph.D.</td>
-                <td>Haekal Febriansyah Ramadhan, S.T., M.T., M.Pd.</td>
-              </tr>
-              <tr>
-                <td>14:50 - 17:30</td>
-                <td>Pemrograman Web</td>
-                <td>Dr. Ir. Mustari S. Lamada, S.Pd., M.T.</td>
-                <td>Alifyah NFH, S.Pd., M.Pd.</td>
-              </tr>
+                <tr>
+                  <td rowspan="2">Selasa</td>
+                  <td>07:30 - 09:10</td>
+                  <td>Profesi Kependidikan</td>
+                  <td>Prof. Dr. Ir. Riana Tangkir Mangesa, M.T.</td>
+                  <td>Prof. Dr. Darmawang, M.Kes.</td>
+                </tr>
+                <tr>
+                  <td>14:50 - 17:30</td>
+                  <td>Strategi Pembelajaran</td>
+                  <td>Dr. Ir. Ridwan Daud Mahande, S.Pd., M.Pd., IPM.</td>
+                  <td>Suci Anita Octavia, S.Pd., M.Pd.</td>
+                </tr>
 
-              <tr>
-                <td rowspan="2">Selasa</td>
-                <td>07:30 - 09:10</td>
-                <td>Profesi Kependidikan</td>
-                <td>Prof. Dr. Ir. Riana Tangkir Mangesa, M.T.</td>
-                <td>Prof. Dr. Darmawang, M.Kes.</td>
-              </tr>
-              <tr>
-                <td>14:50 - 17:30</td>
-                <td>Strategi Pembelajaran</td>
-                <td>Dr. Ir. Ridwan Daud Mahande, S.Pd., M.Pd., IPM.</td>
-                <td>Suci Anita Octavia, S.Pd., M.Pd.</td>
-              </tr>
+                <tr>
+                  <td rowspan="3">Rabu</td>
+                  <td>07:30 - 09:10</td>
+                  <td>Keamanan Komputer</td>
+                  <td>Wahyu Hidayat M, S.Pd., M.Pd.</td>
+                  <td>Fadilrrahman Baso, S.Pd., M.Pd.</td>
+                </tr>
+                <tr>
+                  <td>10:05 - 12:40</td>
+                  <td>Struktur Data</td>
+                  <td>Alifyah NFH, S.Pd., M.Pd.</td>
+                  <td>Kurnia Wahyu Prima, S.Pd., M.Pd.T.</td>
+                </tr>
+                <tr>
+                  <td>15:45 - 17:30</td>
+                  <td>Inovasi Teknologi</td>
+                  <td>Dr. Ir. Yasdin, S.Pd., M.Sc., IPM.</td>
+                  <td>Muhammad Romario Basirung, S.Pd., M.Pd.</td>
+                </tr>
 
-              <tr>
-                <td rowspan="3">Rabu</td>
-                <td>07:30 - 09:10</td>
-                <td>Keamanan Komputer</td>
-                <td>Wahyu Hidayat M, S.Pd., M.Pd.</td>
-                <td>Fadilrrahman Baso, S.Pd., M.Pd.</td>
-              </tr>
-              <tr>
-                <td>10:05 - 12:40</td>
-                <td>Struktur Data</td>
-                <td>Alifyah NFH, S.Pd., M.Pd.</td>
-                <td>Kurnia Wahyu Prima, S.Pd., M.Pd.T.</td>
-              </tr>
-              <tr>
-                <td>15:45 - 17:30</td>
-                <td>Inovasi Teknologi</td>
-                <td>Dr. Ir. Yasdin, S.Pd., M.Sc., IPM.</td>
-                <td>Muhammad Romario Basirung, S.Pd., M.Pd.</td>
-              </tr>
+                <tr>
+                  <td>Kamis</td>
+                  <td>07:30 - 09:10</td>
+                  <td>Kecerdasan Buatan</td>
+                  <td>Dyah Darma Andayani, S.T., M.Tel.Eng.</td>
+                  <td>Marwan Ramadhany Edy, S.Pd., M.Kom.</td>
+                </tr>
 
-              <tr>
-                <td>Kamis</td>
-                <td>07:30 - 09:10</td>
-                <td>Kecerdasan Buatan</td>
-                <td>Dyah Darma Andayani, S.T., M.Tel.Eng.</td>
-                <td>Marwan Ramadhany Edy, S.Pd., M.Kom.</td>
-              </tr>
-
-              <tr>
-                <td>Jumat</td>
-                <td>10:05 - 11:50</td>
-                <td>Psikologi Pendidikan</td>
-                <td>Dwi Rezky Anandari Sulaiman, S.Psi., M.Si.</td>
-                <td>Ainun Nida Rifqi, MPsi.T.</td>
-              </tr>
-            </tbody>
-          </table>
+                <tr>
+                  <td>Jumat</td>
+                  <td>10:05 - 11:50</td>
+                  <td>Psikologi Pendidikan</td>
+                  <td>Dwi Rezky Anandari Sulaiman, S.Psi., M.Si.</td>
+                  <td>Ainun Nida Rifqi, MPsi.T.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="text-center text-white py-3">
-    &copy; 2025 Sherlina Muliadi | PTIK F
+  <footer class="text-center">
+    <div class="container">
+      <p><i class="fas fa-heart"></i> &copy; 2025 Sherlina Muliadi | 240209501093 | PTIK F</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
